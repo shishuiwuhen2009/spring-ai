@@ -16,24 +16,28 @@
 
 package org.springframework.ai.template;
 
-import java.util.Map;
-
-import org.springframework.util.Assert;
-
 /**
- * No-op implementation of {@link TemplateRenderer} that returns the template unchanged.
+ * Validation modes for template renderers.
  *
  * @author Thomas Vitale
  * @since 1.0.0
  */
-public class NoOpTemplateRenderer implements TemplateRenderer {
+public enum ValidationMode {
 
-	@Override
-	public String apply(String template, Map<String, Object> variables) {
-		Assert.hasText(template, "template cannot be null or empty");
-		Assert.notNull(variables, "variables cannot be null");
-		Assert.noNullElements(variables.keySet(), "variables keys cannot be null");
-		return template;
-	}
+	/**
+	 * If the validation fails, an exception is thrown. This is the default mode.
+	 */
+	THROW,
+
+	/**
+	 * If the validation fails, a warning is logged. The template is rendered with the
+	 * missing placeholders/variables. This mode is not recommended for production use.
+	 */
+	WARN,
+
+	/**
+	 * No validation is performed.
+	 */
+	NONE;
 
 }

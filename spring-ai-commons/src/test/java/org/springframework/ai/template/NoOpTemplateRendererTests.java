@@ -29,7 +29,7 @@ import org.junit.jupiter.api.Test;
  *
  * @author Thomas Vitale
  */
-class NoOpPromptTemplateRendererTests {
+class NoOpTemplateRendererTests {
 
 	@Test
 	void shouldReturnUnchangedTemplate() {

@@ -21,6 +21,7 @@ import org.antlr.runtime.TokenStream;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.ai.template.TemplateRenderer;
+import org.springframework.ai.template.ValidationMode;
 import org.springframework.util.Assert;
 import org.stringtemplate.v4.ST;
 import org.stringtemplate.v4.compiler.STLexer;
@@ -125,27 +126,6 @@ public class StTemplateRenderer implements TemplateRenderer {
 		}
 
 		return inputVariables;
-	}
-
-	public enum ValidationMode {
-
-		/**
-		 * If the validation fails, an exception is thrown. This is the default mode.
-		 */
-		THROW,
-
-		/**
-		 * If the validation fails, a warning is logged. The template is rendered with the
-		 * missing placeholders/variables. This mode is not recommended for production
-		 * use.
-		 */
-		WARN,
-
-		/**
-		 * No validation is performed.
-		 */
-		NONE;
-
 	}
 
 	public static Builder builder() {
