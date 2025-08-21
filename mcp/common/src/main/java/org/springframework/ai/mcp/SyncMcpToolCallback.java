@@ -80,6 +80,8 @@ public class SyncMcpToolCallback implements ToolCallback {
 
 	}
 
+	public String getOriginalToolName() { return this.tool.name(); }
+
 	/**
 	 * Returns a Spring AI tool definition adapted from the MCP tool.
 	 * <p>
